@@ -10,10 +10,12 @@ export const MainScreen = () => {
   const items = useSelector((state) => state.photos.photos);
   const loading = useSelector((state) => state.photos.loading);
 
+  // useEffect for calling dispatch method from Redux actions
   useEffect(() => {
     dispatch(photoActions.fetchData());
   }, []);
 
+  // If the app is loading for fetching data, shows loading component
   if (loading) {
     return <Loading />;
   }

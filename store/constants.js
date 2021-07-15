@@ -1,3 +1,4 @@
+// Declarations of Reducer types
 export const FETCH_DATA = 'FETCH_DATA';
 export const FETCH_DATA_PROCESSING = 'FETCH_DATA_PROCESSING';
 

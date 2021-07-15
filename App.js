@@ -7,10 +7,12 @@ import photosReducer from './store/reducers/photos';
 
 import { MainScreen } from './screens/index';
 
+// Declare a central state management
 const rootReducer = combineReducers({
   photos: photosReducer,
 });
 
+// Create a store with Redux and Redux_Thunk for appending more middleware transaction for asynchronous communication
 const store = createStore(rootReducer, applyMiddleware(ReduxThunk));
 
 export default function App() {
