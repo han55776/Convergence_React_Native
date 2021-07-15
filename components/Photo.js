@@ -24,7 +24,7 @@ const styles = StyleSheet.create({
     elevation: 5,
     margin: 30,
     width: '60%',
-    height: 500,
+    height: '90%',
 
     position: 'relative',
   },
