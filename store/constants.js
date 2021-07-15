@@ -1,0 +1,2 @@
+export const FETCH_DATA = 'FETCH_DATA';
+export const SORTING_IN_RANDOM = 'SORTING_IN_RANDOM';
