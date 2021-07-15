@@ -27,4 +27,4 @@ Extra notes:
 
 Bonus / optional: Use Expo to distribute the build to someone on our team
 
-        - Yes (All Dev environments are at Expo. Android, IOS, Web OK)
+        - Yes (All Dev environments are implemented at Expo. Android, IOS, Web OK)
