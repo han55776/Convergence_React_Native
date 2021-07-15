@@ -2,15 +2,21 @@ import React, { useEffect } from 'react';
 import { View, StyleSheet, Button } from 'react-native';
 import { useDispatch, useSelector } from 'react-redux';
 import { PhotoContainer } from '../components/index';
+import { Loading } from '../components/index';
 import * as photoActions from '../store/actions/photos';
 
 export const MainScreen = () => {
   const dispatch = useDispatch();
   const items = useSelector((state) => state.photos.photos);
+  const loading = useSelector((state) => state.photos.loading);
 
   useEffect(() => {
     dispatch(photoActions.fetchData());
   }, []);
+
+  if (loading) {
+    return <Loading />;
+  }
 
   return (
     <View style={styles.screen}>
@@ -18,7 +24,8 @@ export const MainScreen = () => {
       <Button
         style={styles.button}
         title='Start Mixing'
-        onPress={() => {
+        onPress={(e) => {
+          e.preventDefault();
           dispatch(photoActions.shuffleArray(items));
         }}
       />

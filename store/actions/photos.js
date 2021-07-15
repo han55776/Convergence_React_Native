@@ -1,9 +1,16 @@
 import AsyncStorage from '@react-native-async-storage/async-storage';
-import { FETCH_DATA, SORTING_IN_RANDOM } from '../constants';
+import {
+  FETCH_DATA,
+  FETCH_DATA_PROCESSING,
+  SORTING_IN_RANDOM,
+  SORTING_IN_RANDOM_PROCESSING,
+} from '../constants';
 import { shuffle } from '../../helpers/shuffle';
 
 export const fetchData = () => {
   return async (dispatch) => {
+    dispatch({ type: FETCH_DATA_PROCESSING });
+
     var photos = await AsyncStorage.getItem('data');
 
     if (!photos) {
@@ -32,8 +39,12 @@ export const fetchData = () => {
 };
 
 export const shuffleArray = (array) => {
-  return (dispatch) => {
+  return async (dispatch) => {
+    dispatch({ type: SORTING_IN_RANDOM_PROCESSING });
+
     array = shuffle(array, 0);
+
+    await AsyncStorage.setItem('data', JSON.stringify(array));
 
     dispatch({ type: SORTING_IN_RANDOM, payload: array });
   };

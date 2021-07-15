@@ -1,4 +1,9 @@
-import { FETCH_DATA, SORTING_IN_RANDOM } from '../constants';
+import {
+  FETCH_DATA,
+  FETCH_DATA_PROCESSING,
+  SORTING_IN_RANDOM,
+  SORTING_IN_RANDOM_PROCESSING,
+} from '../constants';
 
 const initialState = {
   loading: false,
@@ -11,7 +16,14 @@ export default (state = initialState, action) => {
     case SORTING_IN_RANDOM:
       return {
         ...state,
+        loading: false,
         photos: action.payload,
+      };
+    case FETCH_DATA_PROCESSING:
+    case SORTING_IN_RANDOM_PROCESSING:
+      return {
+        ...state,
+        loading: true,
       };
     default:
       return state;

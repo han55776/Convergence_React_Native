@@ -38,6 +38,7 @@ const styles = StyleSheet.create({
     height: '100%',
   },
   title: {
+    fontWeight: 'bold',
     transform: [{ rotate: '45deg' }],
   },
 });
